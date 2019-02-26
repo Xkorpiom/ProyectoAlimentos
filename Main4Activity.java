@@ -26,11 +26,11 @@ public class Main4Activity extends AppCompatActivity {
     String nombre;
     Cursor result;
     final ArrayList<Alimentos> alimentos = new ArrayList<>();
-    final ArrayList<Alimentos2> alimentos2 = new ArrayList<>();
     Integer elegir;
     AutoCompleteTextView actv1;
-    private String[] nombres;
     float azucar, grasas, sodio;
+    String cereales = "Cereales";
+    String bebidas = "Bebidas";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,10 +86,7 @@ public class Main4Activity extends AppCompatActivity {
                         public void onClick(DialogInterface dialog, int which) {
                             Bundle parametros = new Bundle();
                             parametros.putString("nombre", nombre);
-                            parametros.putFloat("azucar", azucar);
-                            parametros.putFloat("grasas", grasas);
-                            parametros.putFloat("sodio", sodio);
-
+                            parametros.putString("tipo", cereales);
                             Intent i = new Intent(Main4Activity.this, Main3Activity.class);
                             i.putExtras(parametros);
                             startActivity(i);
@@ -138,7 +135,12 @@ public class Main4Activity extends AppCompatActivity {
                     ventana.setPositiveButton("Añadir", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            dialog.cancel();
+                            Bundle parametros = new Bundle();
+                            parametros.putString("nombre", nombre);
+                            parametros.putString("tipo", bebidas);
+                            Intent i = new Intent(Main4Activity.this, Main3Activity.class);
+                            i.putExtras(parametros);
+                            startActivity(i);
                         }
                     });
                     ventana.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
