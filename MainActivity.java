@@ -2,10 +2,12 @@ package com.example.a16carlospr.proyectoalimentos;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
     private String BDname;
     private int BDversion;
     private SQLiteDatabase BDAlimentos;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
         BDHelper bdHelper = new BDHelper(this, BDname, null , BDversion);
         BDAlimentos=bdHelper.getWritableDatabase();
 
+
+
         //BDAlimentos.execSQL("INSERT INTO Cereales (nombre , azucar, grasa, sodio) VALUES ('Arroz Blanco', 2, 4, 6)");
         //BDAlimentos.execSQL("INSERT INTO Cereales (nombre , azucar, grasa, sodio) VALUES ('Fideos', 2, 4, 6)");
         //BDAlimentos.execSQL("INSERT INTO Cereales (nombre , azucar, grasa, sodio) VALUES ('Galletas', 2, 4, 6)");
@@ -32,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
         //BDAlimentos.execSQL("INSERT INTO Bebidas (nombre , azucar, grasa, sodio) VALUES ('Alcohol', 2, 4, 6)");
         //BDAlimentos.execSQL("INSERT INTO Bebidas (nombre , azucar, grasa, sodio) VALUES ('Kas Naranja', 2, 4, 6)");
 
-        //BDAlimentos.execSQL("INSERT INTO Frutas (nombre , azucar, grasa, sodio) VALUES ('Platano', 2, 4, 6)");
-        //BDAlimentos.execSQL("INSERT INTO Frutas (nombre , azucar, grasa, sodio) VALUES ('Fruta', 2, 4, 6)");
-        //BDAlimentos.execSQL("INSERT INTO Frutas (nombre , azucar, grasa, sodio) VALUES ('Manzana', 2, 4, 6)");
+        //BDAlimentos.execSQL("INSERT INTO Fruta (nombre , azucar, grasa, sodio) VALUES ('Platano', 2, 4, 6)");
+        //BDAlimentos.execSQL("INSERT INTO Fruta (nombre , azucar, grasa, sodio) VALUES ('Fruta', 2, 4, 6)");
+        //BDAlimentos.execSQL("INSERT INTO Fruta (nombre , azucar, grasa, sodio) VALUES ('Manzana', 2, 4, 6)");
 
         //BDAlimentos.execSQL("INSERT INTO Huevos (nombre , azucar, grasa, sodio) VALUES ('Gallina', 2, 4, 6)");
         //BDAlimentos.execSQL("INSERT INTO Huevos (nombre , azucar, grasa, sodio) VALUES ('Pato', 2, 4, 6)");

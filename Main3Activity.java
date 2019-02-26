@@ -13,6 +13,8 @@ public class Main3Activity extends AppCompatActivity {
 
     Button btnañadir, btnvalorar;
     ListView lv1;
+    String nombre;
+    float azucar, grasas, sodio;
 
 
     @Override
@@ -23,6 +25,14 @@ public class Main3Activity extends AppCompatActivity {
         btnañadir = (Button)findViewById(R.id.btnañadir);
         btnvalorar = (Button)findViewById(R.id.btnvalorar);
         lv1 = (ListView) findViewById(R.id.lv1);
+
+
+        Bundle parametros = this.getIntent().getExtras();
+        nombre = parametros.getString("nombre");
+        azucar = parametros.getFloat("azucar");
+        grasas = parametros.getFloat("grasas");
+        sodio = parametros.getFloat("sodio");
+        tv2.setText(datos);
 
         btnañadir.setOnClickListener(new View.OnClickListener() {
             @Override

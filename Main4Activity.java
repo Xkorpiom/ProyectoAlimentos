@@ -1,6 +1,7 @@
 package com.example.a16carlospr.proyectoalimentos;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AlertDialog;
@@ -25,6 +26,7 @@ public class Main4Activity extends AppCompatActivity {
     String nombre;
     Cursor result;
     final ArrayList<Alimentos> alimentos = new ArrayList<>();
+    final ArrayList<Alimentos2> alimentos2 = new ArrayList<>();
     Integer elegir;
     AutoCompleteTextView actv1;
     private String[] nombres;
@@ -82,7 +84,15 @@ public class Main4Activity extends AppCompatActivity {
                     ventana.setPositiveButton("Añadir", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            dialog.cancel();
+                            Bundle parametros = new Bundle();
+                            parametros.putString("nombre", nombre);
+                            parametros.putFloat("azucar", azucar);
+                            parametros.putFloat("grasas", grasas);
+                            parametros.putFloat("sodio", sodio);
+
+                            Intent i = new Intent(Main4Activity.this, Main3Activity.class);
+                            i.putExtras(parametros);
+                            startActivity(i);
                         }
                     });
                     ventana.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
@@ -94,6 +104,8 @@ public class Main4Activity extends AppCompatActivity {
                     ventana.show();
                 }
             });
+
+
         }
         if (elegir==2) {
             result = BDAlimentos.rawQuery("Select nombre from Bebidas", null);
