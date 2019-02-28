@@ -31,6 +31,8 @@ public class Main4Activity extends AppCompatActivity {
     float azucar, grasas, sodio;
     String cereales = "Cereales";
     String bebidas = "Bebidas";
+    final ArrayList<String> alimentos2 = new ArrayList<>();
+    Object items;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,17 +65,20 @@ public class Main4Activity extends AppCompatActivity {
             AdaptadorPersonalizado ada = new AdaptadorPersonalizado(Main4Activity.this, alimentos);
             lv1.setAdapter(ada);
 
+
+
             lv1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                    result = BDAlimentos.rawQuery("Select nombre, azucar, grasa, sodio from Cereales", null);
+                    position = position+1;
+                    result = BDAlimentos.rawQuery("Select nombre, azucar, grasa, sodio from Cereales where id='" + position + "'", null);
                     while (result.moveToNext()) {
                         nombre = result.getString(0);
                         azucar = result.getFloat(1);
                         grasas = result.getFloat(2);
                         sodio = result.getFloat(3);
                     }
+
                     result.close();
 
                     AlertDialog.Builder ventana = new AlertDialog.Builder(Main4Activity.this);
@@ -118,7 +123,8 @@ public class Main4Activity extends AppCompatActivity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                    result = BDAlimentos.rawQuery("Select nombre, azucar, grasa, sodio from Bebidas", null);
+                    position = position+1;
+                    result = BDAlimentos.rawQuery("Select nombre, azucar, grasa, sodio from Bebidas where id='" + position + "'", null);
                     while (result.moveToNext()) {
                         nombre = result.getString(0);
                         azucar = result.getFloat(1);
@@ -167,7 +173,8 @@ public class Main4Activity extends AppCompatActivity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                    result = BDAlimentos.rawQuery("Select nombre, azucar, grasa, sodio from Legumbres", null);
+                    position = position+1;
+                    result = BDAlimentos.rawQuery("Select nombre, azucar, grasa, sodio from Legumbres where id='" + position + "'", null);
                     while (result.moveToNext()) {
                         nombre = result.getString(0);
                         azucar = result.getFloat(1);
@@ -211,7 +218,8 @@ public class Main4Activity extends AppCompatActivity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                    result = BDAlimentos.rawQuery("Select nombre, azucar, grasa, sodio from Lacteos", null);
+                    position = position+1;
+                    result = BDAlimentos.rawQuery("Select nombre, azucar, grasa, sodio from Lacteos where id='" + position + "'", null);
                     while (result.moveToNext()) {
                         nombre = result.getString(0);
                         azucar = result.getFloat(1);
@@ -255,7 +263,8 @@ public class Main4Activity extends AppCompatActivity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                    result = BDAlimentos.rawQuery("Select nombre, azucar, grasa, sodio from Verduras", null);
+                    position = position+1;
+                    result = BDAlimentos.rawQuery("Select nombre, azucar, grasa, sodio from Verduras where id='" + position + "'", null);
                     while (result.moveToNext()) {
                         nombre = result.getString(0);
                         azucar = result.getFloat(1);
@@ -299,7 +308,8 @@ public class Main4Activity extends AppCompatActivity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                    result = BDAlimentos.rawQuery("Select nombre, azucar, grasa, sodio from Semillas", null);
+                    position = position+1;
+                    result = BDAlimentos.rawQuery("Select nombre, azucar, grasa, sodio from Semillas where id='" + position + "'", null);
                     while (result.moveToNext()) {
                         nombre = result.getString(0);
                         azucar = result.getFloat(1);
@@ -343,7 +353,8 @@ public class Main4Activity extends AppCompatActivity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                    result = BDAlimentos.rawQuery("Select nombre, azucar, grasa, sodio from Fruta", null);
+                    position = position+1;
+                    result = BDAlimentos.rawQuery("Select nombre, azucar, grasa, sodio from Fruta where id='" + position + "'", null);
                     while (result.moveToNext()) {
                         nombre = result.getString(0);
                         azucar = result.getFloat(1);
@@ -387,8 +398,8 @@ public class Main4Activity extends AppCompatActivity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-
-                    result = BDAlimentos.rawQuery("Select nombre, azucar, grasa, sodio from Huevos", null);
+                    position = position+1;
+                    result = BDAlimentos.rawQuery("Select nombre, azucar, grasa, sodio from Huevos where id='" + position + "'", null);
                     while (result.moveToNext()) {
                         nombre = result.getString(0);
                         azucar = result.getFloat(1);

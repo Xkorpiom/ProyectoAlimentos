@@ -24,8 +24,6 @@ public class Main3Activity extends AppCompatActivity {
     private SQLiteDatabase BDAlimentos;
     String nombre;
     float azucar, grasas, sodio;
-    final ArrayList<Alimentos2> alimentos2 = new ArrayList<>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,9 +55,8 @@ public class Main3Activity extends AppCompatActivity {
                 grasas = result.getFloat(2);
                 sodio = result.getFloat(3);
             }
-            alimentos2.add(new Alimentos2(R.drawable.cereales, nombre, azucar, grasas, sodio));
-
-            AdaptadorPersonalizado2 ada = new AdaptadorPersonalizado2(Main3Activity.this, alimentos2);
+            MainActivity.alimentos2.add(new Alimentos2(R.drawable.cereales, nombre, azucar, grasas, sodio));
+            AdaptadorPersonalizado2 ada = new AdaptadorPersonalizado2(Main3Activity.this, MainActivity.alimentos2);
             lv1.setAdapter(ada);
             result.close();
 
